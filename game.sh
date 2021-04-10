@@ -224,7 +224,7 @@ function random_xy_generator {
 function random_xy_one_monster {
     random_xy_generator
     while [[ 1 ]]; do
-      if [[ $var_random_x -gt 23 && $var_random_x -lt 29 && $var_random_y -gt 8 && $var_random_y -lt 14 ]]; then
+      if [[ $var_random_x -lt $[$var_player_position_x+3] && $var_random_x -gt $[$var_player_position_y-3] && $var_random_y -gt $[$var_player_position_y+3] && $var_random_y -gt $[$var_player_position_y-3] ]]; then
         random_xy_generator
       else
         var_monster_tmp_x=$var_random_x
@@ -233,7 +233,6 @@ function random_xy_one_monster {
       fi
     done
 }
-
 
 
 function random_xy_one_food {
